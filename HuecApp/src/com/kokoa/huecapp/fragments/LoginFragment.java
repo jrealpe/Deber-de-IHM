@@ -139,45 +139,44 @@ public class LoginFragment extends Fragment implements ProgressGenerator.OnCompl
 		}else{
 			final BasedRegister_User helper=new BasedRegister_User(view.getContext());
 			boolean bo=false;
-			if(verificaConexion(view.getContext())){
-				helper.abrir();
-				Cursor c = helper.getReadableDatabase().rawQuery("SELECT id, username,contrasena FROM usuario", null);
-				if (c.moveToFirst()) {
-				     //Recorremos el cursor hasta que no haya m�s registros
-				     do {
-				    	  String id,user,contrasena1;
-				    	  id=c.getString(0);
-				    	  user=c.getString(1);
-				    	  contrasena1=c.getString(2);
-				    	  if(user.equals(txtEmail.getText().toString())){
-				    		  if(contrasena1.equals(txtContrasena.getText().toString())){
-				    			  helper.getWritableDatabase().execSQL("UPDATE usuario SET estado='1' WHERE id="+id);
-				    			  helper.cerrar();
-				    			  MainActivity.id=id;
-				    			  bo=true;
-				    			  Intent i=new Intent(view.getContext(), MainActivity.class);
-				    			  startActivity(i);				    			  
-				    		  }else{
-				    			  //Toast.makeText(getApplicationContext(), "No coinciden", Toast.LENGTH_LONG).show();
-				    			  
-				    		  }
-				    	  }else{
-				    		  //Toast.makeText(getApplicationContext(), "Correo no guardado", Toast.LENGTH_LONG).show();
-				    	  }
-				    	 
-				    	  //Toast.makeText(getApplication(), nombre1 + cedula1 + contraseña1 , Toast.LENGTH_LONG).show() ;
-				     } while(c.moveToNext());
-				     
-				     if (!bo){ 
-				    	 new Post((Activity) view.getContext()).execute("","","");
-					 }
-				}else {
-					new Post((Activity) view.getContext()).execute("","","");
-				}
-				helper.cerrar();
+			helper.abrir();
+			Cursor c = helper.getReadableDatabase().rawQuery("SELECT id, username,contrasena FROM usuario", null);
+			if (c.moveToFirst()) {
+			     //Recorremos el cursor hasta que no haya m�s registros
+			     do {
+			    	  String id,user,contrasena1;
+			    	  id=c.getString(0);
+			    	  user=c.getString(1);
+			    	  contrasena1=c.getString(2);
+			    	  if(user.equals(txtEmail.getText().toString())){
+			    		  if(contrasena1.equals(txtContrasena.getText().toString())){
+			    			  helper.getWritableDatabase().execSQL("UPDATE usuario SET estado='1' WHERE id="+id);
+			    			  helper.cerrar();
+			    			  MainActivity.id=id;
+			    			  bo=true;
+			    			  Intent i=new Intent(view.getContext(), MainActivity.class);
+			    			  startActivity(i);				    			  
+			    		  }else{
+			    			  //Toast.makeText(getApplicationContext(), "No coinciden", Toast.LENGTH_LONG).show();
+			    			  
+			    		  }
+			    	  }else{
+			    		  //Toast.makeText(getApplicationContext(), "Correo no guardado", Toast.LENGTH_LONG).show();
+			    	  }
+			    	 
+			    	  //Toast.makeText(getApplication(), nombre1 + cedula1 + contraseña1 , Toast.LENGTH_LONG).show() ;
+			     } while(c.moveToNext());
+			     
+			     if (!bo){ 
+			    	 new Post((Activity) view.getContext()).execute("","","");
+				 }
+			}else {
+				new Post((Activity) view.getContext()).execute("","","");
 			}
-
+			helper.cerrar();
 		}
+
+	
 	}
 
 	@Override
@@ -222,7 +221,7 @@ public class LoginFragment extends Fragment implements ProgressGenerator.OnCompl
 
 		/** application context. */
 		private Context context;
-
+		public String id, nombre, apellido, correo;
 		protected void onPreExecute() {
 			dialog.setMessage("Progress start");
 			dialog.show();
@@ -234,8 +233,8 @@ public class LoginFragment extends Fragment implements ProgressGenerator.OnCompl
 			if(success){
 	  	        Log.i("log_tag", "TODO BIEN");
 	  	        final BasedRegister_User helper1=new BasedRegister_User(view.getContext());
-	  	        helper1.insertarReg((Integer.toString(helper1.contar()+1)), "correo", txtEmail.getText().toString(),
-	  	        		txtContrasena.getText().toString(), "Nombre", "Apellido", "1");
+	  	        helper1.insertarReg(id, correo, txtEmail.getText().toString(),
+	  	        		txtContrasena.getText().toString(), nombre, apellido, "1");
 				helper1.cerrar();
 				new SweetAlertDialog(view.getContext(), SweetAlertDialog.SUCCESS_TYPE)
             	.setTitleText("Excelente!")
@@ -263,12 +262,16 @@ public class LoginFragment extends Fragment implements ProgressGenerator.OnCompl
 	    	
 			try {
 				if (JO.getString("username")==null){
+					new SweetAlertDialog(view.getContext(), SweetAlertDialog.ERROR_TYPE).setTitleText("Oops...").setContentText("Error de conexion.")
+		            .show();
 					return false;
 				}else{
 					return true;
 				}
 			}catch (JSONException e) {
 				// TODO Auto-generated catch block
+				new SweetAlertDialog(view.getContext(), SweetAlertDialog.ERROR_TYPE).setTitleText("Oops...").setContentText("Error de conexion.")
+	            .show();
 				e.printStackTrace();
 				return false;
 			}

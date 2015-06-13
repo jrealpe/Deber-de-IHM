@@ -1,17 +1,10 @@
 package com.kokoa.huecapp;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-
-import org.apache.http.ParseException;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import com.google.android.gms.drive.internal.GetMetadataRequest;
 import com.kokoa.huecapp.adapters.TabsPagerAdapter;
 import com.kokoa.huecapp.bd.BasedRegister_Restaurant;
+import com.kokoa.huecapp.bd.BasedRegister_User;
 import com.kokoa.huecapp.classes.GetRestaurants;
 import com.kokoa.huecapp.classes.Restaurant;
 import com.kokoa.huecapp.fragments.MapFragment;
@@ -23,11 +16,15 @@ import android.app.ProgressDialog;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 public class MainActivity extends FragmentActivity implements
@@ -39,6 +36,48 @@ public class MainActivity extends FragmentActivity implements
 	public static String id;
 	// Tab titles
 	private String[] tabs = { "Mapa", "Top", "Filter", "Menu" };
+
+	@Override
+    public boolean onCreateOptionsMenu(Menu menu){
+
+         MenuInflater inflater = getMenuInflater();
+         inflater.inflate(R.menu.main, menu);
+          return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.mnuranking:
+                //newGame();
+                return true;
+            case R.id.mnuregplato:
+                //showHelp();
+                return true;
+                
+            case R.id.mnuregres:
+                //showHelp();
+                return true;
+            case R.id.mnuultimas:
+                //showHelp();
+                return true;
+                
+            case R.id.mnucerrar:
+    			final BasedRegister_User b=new BasedRegister_User(getApplicationContext());
+    			b.getWritableDatabase().execSQL("UPDATE usuario SET estado='0' WHERE id="+id);
+    			b.close();
+    			Intent i=new Intent(MainActivity.this,IngresoActivity.class);
+    			startActivity(i);
+    			finish();
+            	
+                //showHelp();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

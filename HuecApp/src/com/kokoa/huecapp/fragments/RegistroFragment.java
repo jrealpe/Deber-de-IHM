@@ -8,8 +8,6 @@ import org.json.JSONObject;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
-import com.coreform.open.android.formidablevalidation.RegExpressionValueValidator;
-import com.coreform.open.android.formidablevalidation.ValidationManager;
 import com.dd.nuevo.ProgressGenerator;
 import com.dd.nuevo.ProgressGenerator.OnCompleteListener;
 import com.dd.processbutton.iml.ActionProcessButton;
@@ -70,10 +68,6 @@ public class RegistroFragment extends Fragment implements ProgressGenerator.OnCo
 		lblContrasena = ((FloatingLabelView) view.findViewById(R.id.lblContrasena)).getEditText();
 		lblReContrasena = ((FloatingLabelView) view.findViewById(R.id.lblRepContrasena)).getEditText();
 		
-		ValidationManager v=new ValidationManager(view.getContext());
-		v.add("emailAddress", new RegExpressionValueValidator((EditText) lblCorreo , "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$", "Email address must be valid."));
-		
-		v.validateAllAndSetError();
 		
 		progressGenerator = new ProgressGenerator(this);
 		btnSignIn = (ActionProcessButton) view.findViewById(R.id.btnSignIn);
@@ -193,6 +187,7 @@ public class RegistroFragment extends Fragment implements ProgressGenerator.OnCo
 		
 		private Activity activity;
 		public Controlador c;
+		public String id;
 		// private List<Message> messages;
 		public Post(Activity activity) {
 			this.activity = activity;
@@ -218,7 +213,7 @@ public class RegistroFragment extends Fragment implements ProgressGenerator.OnCo
 	  	        final BasedRegister_User helper1=new BasedRegister_User(view.getContext());
 				
 	  	      	helper1.abrir();
-	  	        helper1.insertarReg((Integer.toString(helper1.contar()+1)), lblCorreo.getText().toString(), lblUsername.getText().toString(),
+	  	        helper1.insertarReg(id, lblCorreo.getText().toString(), lblUsername.getText().toString(),
 	  	        		lblContrasena.getText().toString(), lblNombre.getText().toString(), lblApellido.getText().toString(), "0");
 				helper1.cerrar();
 				
@@ -255,13 +250,18 @@ public class RegistroFragment extends Fragment implements ProgressGenerator.OnCo
 	    					, lblContrasena.getText().toString());
 	    	
 			try {
-				if (JO.getString("user")==null){
+				if (JO.getString("id")==null){
+					new SweetAlertDialog(view.getContext(), SweetAlertDialog.ERROR_TYPE).setTitleText("Oops...").setContentText("Error de conexion.")
+		            .show();
 					return false;
 				}else{
+					id=JO.getString("id");
 					return true;
 				}
 			}catch (JSONException e) {
 				// TODO Auto-generated catch block
+				new SweetAlertDialog(view.getContext(), SweetAlertDialog.ERROR_TYPE).setTitleText("Oops...").setContentText("Error de conexion.")
+	            .show();
 				e.printStackTrace();
 				return false;
 			}

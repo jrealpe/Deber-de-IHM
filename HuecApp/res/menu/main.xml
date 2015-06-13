@@ -4,15 +4,33 @@
     tools:context="com.kokoa.huecapp.MainActivity" >
 
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/mnuranking"
         android:orderInCategory="100"
-        android:title="@string/cerrar"
+        android:title="Ranking"
         app:showAsAction="never"/>
     
+     <item
+        android:id="@+id/mnuregres"
+        android:orderInCategory="100"
+        android:title="Registro Restaurante"
+        app:showAsAction="never"/>
+        
+     <item
+        android:id="@+id/mnuregplato"
+        android:orderInCategory="100"
+        android:title="Registro Plato"
+        app:showAsAction="never"/>
+     
+     <item
+        android:id="@+id/mnuultimas"
+        android:orderInCategory="100"
+        android:title="Ultimas Huecas"
+        app:showAsAction="never"/>
+         
     <item
-        android:id="@+id/action_contact"
-        android:icon="@drawable/ic_action_user"
-        android:showAsAction="ifRoom"
-        android:title="@string/action_contact"/>
+        android:id="@+id/mnucerrar"
+        android:orderInCategory="100"
+        android:title="Cerrar Sesion"
+        android:showAsAction="never"/>
 
 </menu>
