@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/lib/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.kokoa.huecapp.MainActivity" >
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/cerrar"
+        app:showAsAction="never"/>
+    
+    <item
+        android:id="@+id/action_contact"
+        android:icon="@drawable/ic_action_user"
+        android:showAsAction="ifRoom"
+        android:title="@string/action_contact"/>
+
+</menu>
