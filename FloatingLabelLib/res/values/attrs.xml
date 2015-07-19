@@ -21,6 +21,8 @@
         <attr name="floatHintTextSize" format="integer" />
         <attr name="floatHintTextTypeface" format="string" />
         <attr name="floatHintTextBackground" format="color|reference" />
+        
+        
         <!-- For actual Text -->
 
         <attr name="text" format="string" />

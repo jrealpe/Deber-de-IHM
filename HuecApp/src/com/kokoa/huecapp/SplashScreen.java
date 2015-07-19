@@ -1,6 +1,7 @@
 package com.kokoa.huecapp;
 
-import com.kokoa.huecapp.bd.BasedRegister_User;
+
+import com.kokoa.huecapp.bd.BasedRegister_HuecApp;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -34,7 +35,7 @@ public class SplashScreen extends Activity {
 				try {
 					synchronized (this) {
 						// Wait given period of time or exit on touch
-						wait(2000);
+						wait(4000);
 					}
 				} catch (InterruptedException ex) {
 				}
@@ -43,7 +44,7 @@ public class SplashScreen extends Activity {
 
 				// Run next activity
 
-				final BasedRegister_User helper1=new BasedRegister_User(getApplicationContext());
+				final BasedRegister_HuecApp helper1=new BasedRegister_HuecApp(getApplicationContext());
 				boolean b=false;
 					helper1.abrir();
 					Cursor c = helper1.getReadableDatabase().rawQuery("SELECT id,estado FROM usuario", null);

@@ -1,5 +1,6 @@
 package com.hardik.floatinglabel;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
@@ -30,6 +31,7 @@ public class FloatingLabelView extends LinearLayout implements
 	private Animation bottomUp, bottomDown;
 	private OnFloatingLableFocusChangeListener focusChangeListener;
 
+	@SuppressLint("NewApi")
 	public FloatingLabelView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 	}
@@ -103,11 +105,11 @@ public class FloatingLabelView extends LinearLayout implements
 	}
 
 	private void createDefaultLayout() {
-		input.setGravity(Gravity.LEFT | Gravity.TOP);
-		display.setGravity(Gravity.LEFT);
+		input.setGravity(Gravity.LEFT | Gravity.TOP | Gravity.CENTER);
+		display.setGravity(Gravity.CENTER);
 
-		display.setTextColor(Color.BLACK);
-		input.setTextColor(Color.BLACK);
+		display.setTextColor(Color.WHITE);
+		input.setTextColor(Color.WHITE);
 
         Context context = getContext();
 		input.setTextAppearance(context, android.R.attr.textAppearanceMedium);
@@ -122,6 +124,10 @@ public class FloatingLabelView extends LinearLayout implements
                 R.styleable.FloatingLabel, 0, 0);
 		// For Floating Hint
 
+		/*
+		String floatTextColor = a
+				.getString(R.styleable.textColor);
+		*/
 		String floatHintText = a
 				.getString(R.styleable.FloatingLabel_floatHintText);
 		ColorStateList floatHintTextColorFocused = a
@@ -135,7 +141,7 @@ public class FloatingLabelView extends LinearLayout implements
 		int floatHintTextStyle = a.getInt(
 				R.styleable.FloatingLabel_floatHintTextStyle, Typeface.NORMAL);
 		int floatHintTextGravity = a.getInt(
-				R.styleable.FloatingLabel_floatHintTextGravity, Gravity.LEFT);
+				R.styleable.FloatingLabel_floatHintTextGravity, Gravity.CENTER);
 		Drawable floatHintTextBackground = a
 				.getDrawable(R.styleable.FloatingLabel_floatHintTextBackground);
 
@@ -149,7 +155,7 @@ public class FloatingLabelView extends LinearLayout implements
 		int textStyle = a.getInt(R.styleable.FloatingLabel_textStyle,
 				Typeface.NORMAL);
 		int textGravity = a.getInt(R.styleable.FloatingLabel_textGravity,
-				Gravity.LEFT);
+				Gravity.CENTER);
 
 		Drawable textBackground = a
 				.getDrawable(R.styleable.FloatingLabel_textBackground);
@@ -185,7 +191,7 @@ public class FloatingLabelView extends LinearLayout implements
 
 		int[] colors = new int[] {
 				(focused != null) ? focused.getDefaultColor() : Color.BLACK,
-				(unfocused != null) ? unfocused.getDefaultColor() : Color.GRAY };
+				(unfocused != null) ? unfocused.getDefaultColor() : Color.WHITE };
 
 		return new ColorStateList(states, colors);
 	}

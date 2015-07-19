@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/ic_login" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="10dp">
+		
+        <TextView 
+            android:layout_width="match_parent"
+        	android:layout_height="match_parent"
+            android:text="Registro de Restaurante"
+            android:id="@+id/lblRegistrop"
+            android:textColor="#FFFFFFFF"
+            android:textSize="20sp"
+		    android:textStyle="bold"
+		    android:gravity="center_horizontal"
+		    
+            />
+		    <TextView 
+	            android:layout_width="match_parent"
+	        	android:layout_height="match_parent"
+	            android:text=""
+	            android:id="@+id/txt11"
+	            android:textSize="10sp"
+			    android:textStyle="bold"
+			    android:gravity="center_vertical"
+		    
+            />        
+		             
+		    <TextView 
+	            android:layout_width="match_parent"
+	        	android:layout_height="match_parent"
+	            android:text=""
+	            android:id="@+id/txt2"
+	            android:textSize="10sp"
+			    android:textStyle="bold"
+			    android:gravity="center_vertical"
+		    
+            />
+		    
+		 	<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+		
+		    <TextView
+		        android:id="@+id/lblnombreregres"
+		        android:textColor="#FFFFFFFF"
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"
+		        android:layout_weight="0.70"
+		        android:layout_alignLeft="@+id/foto"
+		        android:layout_alignParentTop="true"
+		        android:gravity="center_vertical"
+	            android:textSize="14sp"
+	            android:text="Nombre:         " />
+
+		    <EditText
+		        android:id="@+id/txtRegistrarRestaurante"
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"
+		        android:layout_weight="0.30"
+		        android:ems="10"
+		        android:inputType="text"
+		         >
+				
+		        <requestFocus />
+		    </EditText>
+		    
+
+        </LinearLayout>
+		    		
+			
+   		    <TextView 
+	            android:layout_width="match_parent"
+	        	android:layout_height="match_parent"
+	            android:text=""
+	            android:id="@+id/txt3"
+	            android:textSize="10sp"
+			    android:textStyle="bold"
+			    android:gravity="center_vertical"
+		    
+            />
+   		   
+   		   <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+		
+		    <TextView
+		        android:id="@+id/lbldireccionregres"
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"
+		        android:layout_weight="0.70"
+		        android:textColor="#FFFFFFFF"
+		        android:layout_alignLeft="@+id/foto"
+		        android:layout_alignParentTop="true"
+		        android:gravity="center_vertical"
+	            android:textSize="14sp"
+	            android:text="Direccion         " />
+
+		    <EditText
+		        android:id="@+id/txtDireccionRes"
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"
+		        android:layout_weight="0.30"
+		        android:ems="10"
+		        android:inputType="text" >
+
+		        <requestFocus />
+		    </EditText>
+		    
+
+        </LinearLayout>
+   		
+   		   	<TextView 
+	            android:layout_width="match_parent"
+	        	android:layout_height="match_parent"
+	            android:text=""
+	            android:id="@+id/txt4"
+	            android:textSize="10sp"
+			    android:textStyle="bold"
+			    android:gravity="center_vertical"
+		    
+            />
+   		
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+			<TableRow 
+			    android:id="@+id/Cabecera"
+        		android:layout_width="fill_parent"
+        		android:layout_height="wrap_content">
+		        
+	 		    <TextView
+			        android:id="@+id/txtFotores"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_alignLeft="@+id/foto"
+			        android:layout_alignParentTop="true"
+			        android:gravity="center_vertical"
+		            android:textSize="14dp"
+		            android:textColor="#FFFFFFFF"
+		            android:text="Elegir Imagen:  " />
+	 			
+		 		<TextView 
+		            android:layout_width="wrap_content"
+		        	android:layout_height="wrap_content"
+		            android:text="         "
+		            android:id="@+id/txt22"
+		            android:textSize="10sp"
+				    android:textStyle="bold"
+				    android:gravity="center_vertical"
+			    
+	            />
+	 		    
+	            <Button
+	                android:id="@+id/btnGaleria1"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_weight="0.25"
+	                android:background="@color/blue_light"
+	                android:textColor="#FFFFFFFF"
+	                android:text="Galeria"
+	                android:textSize="15sp"
+	                 />
+	             
+	            <Button
+	                android:id="@+id/btnCamara1"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_weight="0.25"
+	                android:background="@color/blue_light"
+			        android:text="Camara"
+			        android:textColor="#FFFFFFFF"
+	                android:textSize="15sp" />
+            </TableRow>
+        </TableLayout>
+        
+		<TextView 
+           	android:layout_width="match_parent"
+       		android:layout_height="match_parent"
+           	android:text=""
+           	android:textSize="10sp"
+	    	android:textStyle="bold"
+	    	android:gravity="center_vertical"
+    
+        />
+  		   	
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+
+            <com.kokoa.huecapp.views.ScaleImageView
+                android:id="@+id/iv_pic3"
+                android:alpha="0.7"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:src="@drawable/images"
+                /> 
+        </LinearLayout>
+        
+	    <TextView 
+           	android:layout_width="match_parent"
+       		android:layout_height="match_parent"
+           	android:text=""
+           	android:textSize="10sp"
+	    	android:textStyle="bold"
+	    	android:gravity="center_vertical"
+    
+        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+			
+            
+            <Button
+                android:id="@+id/btn_subir1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/ic_pages"
+                android:text="Registrar Restaurante"
+                android:textColor="@android:color/white" />
+           
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

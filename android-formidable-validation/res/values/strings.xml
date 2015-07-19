@@ -15,4 +15,12 @@
         <item>Singapore</item>
         <item>United Kingdom</item>
     </string-array>
+    
+    <string-array name="buscar_array">
+        <item value="@null">(select one)</item>
+        <item>Plato</item>
+        <item>Restaurante</item>
+        <item>Categoria</item>
+    </string-array>
+    
 </resources>

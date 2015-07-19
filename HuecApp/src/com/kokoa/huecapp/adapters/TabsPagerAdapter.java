@@ -24,9 +24,7 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
 		case 2:
 			// FilterCategory fragment activity
 			return new FilterFragment();
-		case 3:
-			// Menu fragment activity
-			return new MenuFragment();
+		
 		}
 
 		return null;
@@ -35,7 +33,7 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
 	@Override
 	public int getCount() {
 		// get item count - equal to number of tabs
-		return 4;
+		return 3;
 	}
 
 }

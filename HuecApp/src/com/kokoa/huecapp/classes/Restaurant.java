@@ -5,20 +5,31 @@ public class Restaurant {
 	private int id;
 	private String name;
 	private String place;
+	private String description;
 	private float latitude;
 	private float longitude;
 	private String image_restaurant;
 
-	public Restaurant(int id, String name, String place, float latitude,
+	//public Restaurant(int id, String name, String place, String schedule, String description, float latitude,
+	public Restaurant(int id, String name, String place, String description, float latitude,
 			float longitude, String image_restaurant) {
 		
 		this.id = id;
 		this.name = name;
 		this.place = place; 
+		this.description = description;
 		this.latitude = latitude; 
 		this.longitude = longitude;
 		this.image_restaurant = image_restaurant;
 
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public int getId() {
@@ -69,6 +80,10 @@ public class Restaurant {
 		this.image_restaurant = image_restaurant;
 	}
 	
+	@Override
+	public String toString() {
+		
+		return "Nombre: " + getName() + "Descripcion: " + getDescription() + "Lugar: " + getPlace();
+	}
 	
-
 }

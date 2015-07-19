@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">HuecApp</string>
+    <string name="app_name">Menu en Linea</string>
     <string name="hello_world">Hello world!</string>
     <string name="cerrar">Cerrar sesión</string>
+    <string name="buscar">Buscar</string>
 	<string name="action_contact">Contact</string>
+	<string name="nombre_plato">Nombre Plato:</string>
+	<string name="nombre_restaurante">Nombre Restaurante:</string>
+	<string name="nota">Nota: Toda las opciones son opcionales pero debe de escojer por lo menos una.</string>
+	<string name="buscar_plato">Buscar Plato</string>
+	<string name="nombre_catergoria">Nombre Categoria:</string>
 </resources>
